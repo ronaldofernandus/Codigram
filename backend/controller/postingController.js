@@ -1,5 +1,5 @@
 const { Posting, User } = require("../models");
-const jwtVerify = require("../helpers/jwtFile");
+const { getVerification } = require("../helpers/jwtFile");
 
 class postingController {
   static async getPosting(req, res) {
@@ -17,9 +17,11 @@ class postingController {
   static async createPosting(req, res) {
     try {
       const { image, title, caption } = req.body;
+      // console.log(req.headers);
+      const getToken = req.headers.get_token;
 
-      const get_token = req.headers.get_token;
-      let UserId = jwtVerify(get_token).id;
+      let UserId = getVerification(getToken).id;
+      console.log(UserId);
       let createPosting = await Posting.create({
         image,
         title,

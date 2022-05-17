@@ -40,6 +40,7 @@ class userController {
           res.status(200).json({
             get_token,
           });
+         
         } else {
           res.status(403).json({
             message: "Invalid password",
