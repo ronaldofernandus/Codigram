@@ -4,7 +4,6 @@ const authentication = (req, res, next) => {
   const getToken = req.headers.get_token;
 
   if (getToken) {
-    console.log("token Ada");
     try {
       let verifyToken = getVerification(getToken);
       req.userData = verifyToken;
