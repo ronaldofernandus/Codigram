@@ -17,11 +17,9 @@ class postingController {
   static async createPosting(req, res) {
     try {
       const { image, title, caption } = req.body;
-      // console.log(req.headers);
-      const getToken = req.headers.get_token;
 
-      let UserId = getVerification(getToken).id;
-      console.log(UserId);
+      const UserId = +req.userData.id;
+
       let createPosting = await Posting.create({
         image,
         title,

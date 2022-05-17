@@ -5,6 +5,15 @@ const authentication = (req, res, next) => {
 
   if (getToken) {
     console.log("token Ada");
+    try {
+      let verifyToken = getVerification(getToken);
+      req.userData = verifyToken;
+      next();
+    } catch (err) {
+      res.status(401).json({
+        message: `Token not verify`,
+      });
+    }
   } else {
     res.status(403).json({
       message: "token not found",
