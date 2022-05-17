@@ -1,5 +1,7 @@
 const { User } = require("../models");
 const { encrypt, decrypt } = require("../helpers/bcrypt");
+
+const getJwt = require("../helpers/jwtFile");
 class userController {
   static async getUsers(req, res) {
     try {
@@ -34,7 +36,11 @@ class userController {
       });
       if (login) {
         if (decrypt(password, login.password)) {
-          res.status(200).json(login);
+          let getToken = getJwt(login);
+
+          res.status(200).json({
+            getToken,
+          });
         } else {
           res.status(403).json({
             message: "Invalid password",
