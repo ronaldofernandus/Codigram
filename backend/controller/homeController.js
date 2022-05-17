@@ -1,4 +1,4 @@
-const { Posting } = require("../models/posting");
+const { Posting } = require("../models");
 
 class homeController {
   static async getHome(req, res) {
