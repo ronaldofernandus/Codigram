@@ -49,6 +49,46 @@ class userController {
       res.status(500).json(error);
     }
   }
+
+  static async updateUser(req, res) {
+    try {
+      const id = req.params.id;
+      const { email, username, password, nama } = req.body;
+
+      let updateUser = await User.update(
+        {
+          email,
+          username,
+          password: encrypt(password),
+          nama,
+        },
+        {
+          where: { id },
+        }
+      );
+
+      updateUser[0] === 1
+        ? res.status(200).json({
+            message: `Data updated`,
+          })
+        : res.status(403).json({
+            message: `Data not updated`,
+          });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+
+  static async getUsersById(req, res) {
+    try {
+      const id = +req.params.id;
+      let getUsersById = await User.findByPk(id);
+
+      res.status(200).json(getUsersById);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
 }
 
 module.exports = userController;
