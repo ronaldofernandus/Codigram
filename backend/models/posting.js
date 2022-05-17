@@ -1,4 +1,5 @@
 "use strict";
+
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Posting extends Model {
@@ -19,6 +20,11 @@ module.exports = (sequelize, DataTypes) => {
       UserId: DataTypes.INTEGER,
     },
     {
+      hooks: {
+        beforeCreate: (posting, options) => {
+          posting.image = posting.image || "https://via.placeholder.com/150";
+        },
+      },
       sequelize,
       modelName: "Posting",
     }
