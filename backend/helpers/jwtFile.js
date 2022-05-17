@@ -1,21 +1,14 @@
 const jwt = require("jsonwebtoken");
 
-const saltRounds = "limit";
+const saltRoundd = process.env.saltRoundd || "test";
 
 const getJwt = (data) => {
-  const {id, email, username, nama } = data;
-  return jwt.sign(
-    {id,
-      email,
-      username,
-      nama,
-    },
-    saltRounds
-  );
+  const { id, email, username, nama } = data;
+  return jwt.sign({ id, email, username, nama }, saltRoundd);
 };
 
 const getVerification = (data) => {
-  return jwt.verify(data, saltRounds);
+  return jwt.verify(data, saltRoundd);
 };
 
 module.exports = { getJwt, getVerification };

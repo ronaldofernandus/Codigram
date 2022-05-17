@@ -36,7 +36,10 @@ class userController {
       });
       if (login) {
         if (decrypt(password, login.password)) {
-          res.status(200).json(login);
+          let get_token = getJwt(login);
+          res.status(200).json({
+            get_token,
+          });
         } else {
           res.status(403).json({
             message: "Invalid password",
