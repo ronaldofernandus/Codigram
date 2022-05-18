@@ -1,6 +1,6 @@
-import RegisterBg from "./images/register.jpg";
-import Register1 from "./images/registration-form-6.jpg";
-
 import Hape from "./images/hape.jpg";
+import bg2 from "./images/bg-01.jpg";
+import bg from "./images/bg.jpg";
+import api from "./images/api.jpg";
 
-export { RegisterBg, Register1,Hape };
+export { Hape, bg2, api,bg };
