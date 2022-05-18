@@ -1,8 +1,7 @@
 import React from "react";
-import { Hape } from "../../assets/";
-import { Button, Gap, Input } from "../../components/addOns";
-import "./register.css";
+import "./style.css";
 
+import { a, b, phone } from "../../assets";
 import { Link } from "react-router-dom";
 
 const Register = () => {
@@ -10,20 +9,20 @@ const Register = () => {
     <div className="wrapper">
       <div className="inner">
         <div className="image-holder">
-          <img src={Hape} alt="" />
+          <img src={phone} alt="" />
         </div>
 
         <form action="">
-          <h3>Silahkan Register Akun Anda</h3>
+          <h3>Silahkan Register</h3>
+
           <div className="form-row">
-            <input className="form-control" placeholder="Email" />
+            <input type="email" className="form-control" placeholder="Email" />
             <input
               type="text"
               className="form-control"
               placeholder="Username"
             />
           </div>
-
           <div className="form-row">
             <input
               type="password"
@@ -32,22 +31,16 @@ const Register = () => {
             />
             <input type="text" className="form-control" placeholder="Nama" />
           </div>
-
           <button>
             Register
             <i className="zmdi zmdi-long-arrow-right"></i>
           </button>
-          <div className="ms-auto">
-            <Link
-              style={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "60px",
-              }}
-              to="/login"
-            >
-              Sudah Punya akun? Silahkan Login
+          <div
+            className="ms-auto"
+            style={{ paddingTop: "2em", textAlign: "center", color: "black" }}
+          >
+            <Link to={"/login"} className="btn btn-film-detail px-4">
+              Sudah Punya AKun? Silahkan Login
             </Link>
           </div>
         </form>
