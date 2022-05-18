@@ -8,10 +8,8 @@ postingRoute.get("/", postingController.getPosting);
 postingRoute.post(
   "/add",
   authentication,
-  // upload.single("image"),
-  // (req, res) => {
-  //   res.send("data berhasil di upload");
-  // },
+  upload.single("image"),
+
   postingController.createPosting
 );
 postingRoute.put("/:id", postingController.updatePosting);
