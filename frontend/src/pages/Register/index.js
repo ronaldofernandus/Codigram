@@ -1,5 +1,5 @@
 import React from "react";
-import { RegisterBg } from "../../assets/";
+import { Hape } from "../../assets/";
 import { Button, Gap, Input } from "../../components/addOns";
 import "./register.css";
 
@@ -7,29 +7,50 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
-    <div className="main-page">
-      <div className="left">
-        <img src={RegisterBg} className="bg-image" alt="imageBg" />
-      </div>
-      <div className="right">
-        <p className="title"> Register</p>
-        <Input label="Email" placeholder="Email" />
-        <Gap height={18} />
-        <Input label="Username" placeholder="Username" />
-        <Gap height={18} />
-        <Input label="Password" placeholder="Password" />
-        <Gap height={50} />
-        <Input label="Nama" placeholder="Nama" />
-        <Gap height={50} />
-        <Button title="Register" />
-        <Gap height={100} />
+    <div className="wrapper">
+      <div className="inner">
+        <div className="image-holder">
+          <img src={Hape} alt="" />
+        </div>
 
-        <Link
-          style={{ width: "100%", display: "flex", justifyContent: "center" }}
-          to="/login"
-        >
-          Sudah punya akun? Silahkan Login
-        </Link>
+        <form action="">
+          <h3>Silahkan Register Akun Anda</h3>
+          <div className="form-row">
+            <input className="form-control" placeholder="Email" />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Username"
+            />
+          </div>
+
+          <div className="form-row">
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Password"
+            />
+            <input type="text" className="form-control" placeholder="Nama" />
+          </div>
+
+          <button>
+            Register
+            <i className="zmdi zmdi-long-arrow-right"></i>
+          </button>
+          <div className="ms-auto">
+            <Link
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                marginTop: "60px",
+              }}
+              to="/login"
+            >
+              Sudah Punya akun? Silahkan Login
+            </Link>
+          </div>
+        </form>
       </div>
     </div>
   );
