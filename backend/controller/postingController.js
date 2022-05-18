@@ -17,7 +17,7 @@ class postingController {
   static async createPosting(req, res) {
     try {
       const { title, caption } = req.body;
-      const image = req.file.filename;
+      const image = req.file.path;
 
       const UserId = +req.userData.id;
 
