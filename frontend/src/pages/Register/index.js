@@ -1,49 +1,47 @@
 import React from "react";
-import "./style.css";
+import { RegisterBg } from "../../assets";
+import { Button, Gap, Input } from "../../components/addOns";
+import "./register.css";
+import { useNavigate } from "react-router-dom";
 
-import { a, b, phone } from "../../assets";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const loginHandler = () => {
+    navigate("/login");
+  };
   return (
-    <div className="wrapper">
-      <div className="inner">
-        <div className="image-holder">
-          <img src={phone} alt="" />
-        </div>
-
-        <form action="">
-          <h3>Silahkan Register</h3>
-
-          <div className="form-row">
-            <input type="email" className="form-control" placeholder="Email" />
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Username"
-            />
-          </div>
-          <div className="form-row">
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Password"
-            />
-            <input type="text" className="form-control" placeholder="Nama" />
-          </div>
-          <button>
-            Register
-            <i className="zmdi zmdi-long-arrow-right"></i>
-          </button>
-          <div
-            className="ms-auto"
-            style={{ paddingTop: "2em", textAlign: "center", color: "black" }}
+    <div className="main-page">
+      <div className="left">
+        <img src={RegisterBg} className="bg-image" alt="imageBg" />
+      </div>
+      <div className="right">
+        <p className="title"> Register</p>
+        <Input label="Email" placeholder="Email" />
+        <Gap height={18} />
+        <Input label="Username" placeholder="Username" />
+        <Gap height={18} />
+        <Input label="Password" placeholder="Password" />
+        <Gap height={50} />
+        <Input label="Nama" placeholder="Nama" />
+        <Gap height={50} />
+        <Button title="Register" onClick={() => loginHandler()} />
+        <Gap height={100} />
+        <div className="w-100 text-center mt-4 text">
+          <p className="mb-0">Don't have an account?</p>
+          <Link
+            style={{
+              color: "red",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+            }}
+            to="/login"
           >
-            <Link to={"/login"} className="btn btn-film-detail px-4">
-              Sudah Punya AKun? Silahkan Login
-            </Link>
-          </div>
-        </form>
+            Sign Up
+          </Link>
+        </div>
       </div>
     </div>
   );

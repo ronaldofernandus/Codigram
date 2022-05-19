@@ -25,9 +25,6 @@ const Login = () => {
                   <span className="fa fa-user"></span>
                 </div>
                 <input
-                  style={{
-                    marginLeft: "35px",
-                  }}
                   type="text"
                   className="form-control"
                   placeholder="Username"
@@ -39,9 +36,6 @@ const Login = () => {
                   <span className="fa fa-lock"></span>
                 </div>
                 <input
-                  style={{
-                    marginLeft: "35px",
-                  }}
                   type="password"
                   className="form-control"
                   placeholder="Password"
@@ -55,9 +49,6 @@ const Login = () => {
               </div>
               <div className="form-group">
                 <button
-                  style={{
-                    marginLeft: "35px",
-                  }}
                   type="submit"
                   className="btn form-control btn-primary rounded submit px-3"
                 >
