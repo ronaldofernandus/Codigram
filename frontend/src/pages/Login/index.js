@@ -1,27 +1,34 @@
 import React from "react";
-import { google } from "../../assets";
+import { google, b } from "../../assets";
 import "./style.css";
 import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <section class="ftco-section">
+    <section className="ftco-section">
       <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-6 text-center mb-5"></div>
-        </div>
         <div className="row justify-content-center">
           <div className="col-md-6 col-lg-4">
             <div className="login-wrap py-5">
               <div>
                 <h3 className="text-center mb-0">Sign in with</h3>
 
-                <Link to="#" className="btn-google m-b-20">
+                <Link
+                  style={{
+                    color: "red",
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                  to="#"
+                  className="btn-google m-b-20"
+                >
                   <img src={google} alt="GOOGLE" />
-                  Google
                 </Link>
               </div>
-
+              <div style={{paddingTop: '2em',textAlign: "center"}}>
+      		<p>Or</p>
+      	</div>
               <form action="#" className="login-form">
                 <div className="form-group">
                   <div className="icon d-flex align-items-center justify-content-center">

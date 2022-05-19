@@ -64,6 +64,11 @@ nav,
 section { 
   display: block;
 }
+.ftco-section{
+  height: auto;
+  background-color: rgb(32, 20, 20);
+
+}
 
 body {
   margin: 0;
