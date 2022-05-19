@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login, Register, Home } from "../../pages";
+import { Login, Register, MainApp } from "../../pages";
 
 const Router = () => {
   return (
@@ -13,7 +13,7 @@ const Router = () => {
           <Route path="/register" element={<Register></Register>}></Route>
         </Routes>
         <Routes>
-          <Route path="" element={<Home></Home>}></Route>
+          <Route path="/" element={<MainApp></MainApp>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

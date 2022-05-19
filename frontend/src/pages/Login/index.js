@@ -26,9 +26,9 @@ const Login = () => {
                   <img src={google} alt="GOOGLE" />
                 </Link>
               </div>
-              <div style={{paddingTop: '2em',textAlign: "center"}}>
-      		<p>Or</p>
-      	</div>
+              <div style={{ paddingTop: "2em", textAlign: "center" }}>
+                <p>Or</p>
+              </div>
               <form action="#" className="login-form">
                 <div className="form-group">
                   <div className="icon d-flex align-items-center justify-content-center">
