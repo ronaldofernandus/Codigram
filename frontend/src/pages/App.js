@@ -1,13 +1,20 @@
-import React from "react";
-import "./App.css";
-import { Router } from "../config";
+import React from 'react';
+import { Routerr } from '../config';
+
+import './App.css';
 
 function App() {
   return (
-    <div>
-      <Router></Router>
-    </div>
-  );
-}
+<Routerr/>
+  );    
+  }
+
+  <nav>
+    
+  </nav>
+        
+    
+  
+
 
 export default App;

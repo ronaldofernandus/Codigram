@@ -1,22 +1,26 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import { User, Detail, Home } from "../index";
-
+import { Route, Routes } from "react-router-dom";
 import { Navbar } from "../../components";
 
+import User from "../User";
+import Detail from "../Detail";
+import Home from "../Home";
+import "./mainApp.css";
 const MainApp = () => {
   return (
-    <div>
+    <div className="main-app-wrapper">
       <Navbar />
 
-      <Routes>
-        <Route path="/user" element={<User></User>}></Route>
-        <Route path="/detail" element={<Detail></Detail>}></Route>
-        <Route path="/" element={<Home></Home>}></Route>
-      </Routes>
+      <div className="content-wrapper">
+        <Routes>
+          <Route path="/user" element={<User />}></Route>
+          <Route path="/detail" element={<Detail />}></Route>
+         
+          <Route path="/" element={<Home />}></Route>
+        </Routes>
+      </div>
 
-      <p>Footer</p>
+     
     </div>
   );
 };

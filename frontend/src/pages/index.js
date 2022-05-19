@@ -1,9 +1,7 @@
-import Home from "./Home";
-import Login from "./Login";
-import MainApp from "./MainApp";
-import Register from "./Register";
-import Detail from "./Detail";
-import User from './User'
+import Home from './Home';
+import Login from './Login';
+import Register from './Register';
+import MainApp from './MainApp';
 
 
-export { Home, Login, Register, MainApp, Detail,User };
+export{Home,Login,Register,MainApp};

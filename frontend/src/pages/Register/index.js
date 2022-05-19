@@ -1,6 +1,6 @@
 import React from "react";
 import { RegisterBg } from "../../assets/";
-import { Button, Gap, Input } from "../../components/addOns";
+import { Button, Gap, Input } from "../../components/molecules/addOns";
 import "./register.css";
 import { useNavigate } from "react-router-dom";
 
