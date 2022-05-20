@@ -20,7 +20,7 @@ const Login = () => {
         data: form,
       });
       const getAccesJwt = loginUser.data.getAccesJwt;
-      
+
       localStorage.setItem("getAccesJwt", getAccesJwt);
       navigate("/");
     } catch (err) {

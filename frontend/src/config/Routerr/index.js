@@ -22,7 +22,7 @@ const Routerr = () => {
       <Route
         path="/"
         element={
-          !loginStatus ? (
+          loginStatus ? (
             <Login />
           ) : (
             <MainApp
