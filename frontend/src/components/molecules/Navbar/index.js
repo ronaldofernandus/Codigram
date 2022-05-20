@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./navbar.css";
 import { BsPeople } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
@@ -6,7 +6,16 @@ import { FaRegCompass } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { loginStatus, loginCbHandler } = props;
+
+  const loginHandler = () => {
+    loginCbHandler(true);
+  };
+
+  const logoutHandler = () => {
+    loginCbHandler(false);
+  };
   return (
     <div className="navigation">
       <div className="logo">
@@ -22,6 +31,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      
 
       <div
         className="navigation-icons"
@@ -45,9 +56,15 @@ const Navbar = () => {
         </div>
 
         <div>
-          <Link to="/login" target="_blank" className="navigation-link">
-            <BiLogOut size={25} style={{ fill: "black" }} />
-          </Link>
+          {loginStatus ? (
+            <Link to="" onClick={() => logoutHandler()}>
+              <BiLogOut size={25} style={{ fill: "black" }} />
+            </Link>
+          ) : (
+            <Link to="" onClick={() => loginHandler()}>
+              <BiLogOut size={25} style={{ fill: "black" }} />
+            </Link>
+          )}
         </div>
       </div>
     </div>

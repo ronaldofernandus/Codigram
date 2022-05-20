@@ -9,18 +9,18 @@ import "./mainApp.css";
 const MainApp = () => {
   return (
     <div className="main-app-wrapper">
-      <Navbar />
+      <div className="header-wrapper">
+        <Navbar />
+      </div>
 
       <div className="content-wrapper">
         <Routes>
           <Route path="/user" element={<User />}></Route>
           <Route path="/detail" element={<Detail />}></Route>
-         
+
           <Route path="/" element={<Home />}></Route>
         </Routes>
       </div>
-
-     
     </div>
   );
 };

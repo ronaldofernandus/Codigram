@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const Home = () => {
+import { Link } from "react-router-dom";
+import { BiLogOut } from "react-icons/bi";
+import { Navbar } from "../../components";
+
+const HomePage = () => {
+  const [loginStatus, setLoginStatus] = useState(false);
+
+  const loginCbHandler = (result) => {
+    setLoginStatus(result);
+  };
+
   return (
-    <div className="home">
-      <h1>Home</h1>
+    <div>
+      HomePage
+      <Navbar
+        loginStatus={loginStatus}
+        loginCbHandler={loginCbHandler}
+      ></Navbar>
+      <p>Login Status:</p>
+      <p>{JSON.stringify(loginStatus)}</p>
     </div>
   );
 };
 
-export default Home;
+export default HomePage;
