@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { google, b } from "../../assets";
 import "./style.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import axios from "axios";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
+
+  const loginUser = async () => {
+    try {
+      let loginUser = await axios({
+        method: "POST",
+        url: "http://localhost:3000/user/login",
+        data: form,
+      });
+      const getAccesJwt = loginUser.data.getAccesJwt;
+      
+      localStorage.setItem("getAccesJwt", getAccesJwt);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const submitHandler = () => {
+    loginUser(form);
+  };
+
   return (
     <section className="ftco-section">
       <div className="container">
@@ -35,6 +63,9 @@ const Login = () => {
                     <span className="fa fa-user"></span>
                   </div>
                   <input
+                    onChange={(e) =>
+                      setForm({ ...form, username: e.target.value })
+                    }
                     type="text"
                     className="form-control"
                     placeholder="Username"
@@ -46,6 +77,9 @@ const Login = () => {
                     <span className="fa fa-lock"></span>
                   </div>
                   <input
+                    onChange={(e) =>
+                      setForm({ ...form, password: e.target.value })
+                    }
                     type="password"
                     className="form-control"
                     placeholder="Password"
@@ -59,6 +93,7 @@ const Login = () => {
                 </div>
                 <div className="form-group">
                   <button
+                    onClick={() => submitHandler()}
                     type="submit"
                     className="btn form-control btn-primary rounded submit px-3"
                   >

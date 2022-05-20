@@ -9,6 +9,14 @@ const Routerr = () => {
     setLoginStatus(result);
   };
 
+  useEffect(() => {
+    if (localStorage.getItem("getAccesJwt")) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+    }
+  }, [loginStatus]);
+
   return (
     <Routes>
       <Route

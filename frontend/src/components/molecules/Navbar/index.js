@@ -15,6 +15,7 @@ const Navbar = (props) => {
   };
 
   const logoutHandler = () => {
+    localStorage.clear();
     loginCbHandler(false);
   };
   return (
