@@ -6,7 +6,9 @@ import User from "../User";
 import Detail from "../Detail";
 import Home from "../Home";
 import "./mainApp.css";
-const MainApp = () => {
+const MainApp = (props) => {
+  const { loginStatus, loginCbHandler } = props;
+
   return (
     <div className="main-app-wrapper">
       <div className="header-wrapper">
@@ -18,7 +20,12 @@ const MainApp = () => {
           <Route path="/user" element={<User />}></Route>
           <Route path="/detail" element={<Detail />}></Route>
 
-          <Route path="/" element={<Home />}></Route>
+          <Route
+            path="/"
+            element={
+              <Home loginStatus={loginStatus} loginCbHandler={loginCbHandler} />
+            }
+          ></Route>
         </Routes>
       </div>
     </div>

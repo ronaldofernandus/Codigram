@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Login, Register, MainApp } from "../../pages";
 
 const Routerr = () => {
+  const [loginStatus, setLoginStatus] = useState(false);
+
+  const loginCbHandler = (result) => {
+    setLoginStatus(result);
+  };
+
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route
+        path="/"
+        element={
+          !loginStatus ? (
+            <Login />
+          ) : (
+            <MainApp
+              loginStatus={loginStatus}
+              loginCbHandler={loginCbHandler}
+            ></MainApp>
+          )
+        }
+      />
       <Route path="/register" element={<Register />} />
-      <Route path="*" element={<MainApp />} />
-      
     </Routes>
   );
 };
