@@ -4,13 +4,12 @@ import { Login, Register, MainApp } from "../../pages";
 
 const Routerr = () => {
   return (
-    
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<MainApp />} />
-      </Routes>
-    
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="*" element={<MainApp />} />
+      
+    </Routes>
   );
 };
 

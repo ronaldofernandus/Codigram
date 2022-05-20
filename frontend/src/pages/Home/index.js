@@ -18,8 +18,7 @@ const HomePage = () => {
         loginStatus={loginStatus}
         loginCbHandler={loginCbHandler}
       ></Navbar>
-      <p>Login Status:</p>
-      <p>{JSON.stringify(loginStatus)}</p>
+      <h1>Home</h1>
     </div>
   );
 };
