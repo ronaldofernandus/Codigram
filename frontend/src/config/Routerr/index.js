@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Login, Register, MainApp } from "../../pages";
 
-const routerr = () => {
+const Routerr = () => {
   return (
     <Router>
       <Routes>
@@ -14,4 +14,4 @@ const routerr = () => {
   );
 };
 
-export default routerr;
+export default Routerr;
