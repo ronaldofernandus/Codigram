@@ -31,9 +31,6 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
-
-      
-
       <div
         className="navigation-icons"
         style={{ display: "flex", justifyContent: "space-between" }}
