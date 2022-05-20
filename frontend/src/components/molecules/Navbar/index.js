@@ -5,6 +5,7 @@ import { BiLogOut } from "react-icons/bi";
 import { FaRegCompass } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { AiOutlineHome } from "react-icons/ai";
 
 const Navbar = (props) => {
   const { loginStatus, loginCbHandler } = props;
@@ -37,7 +38,7 @@ const Navbar = (props) => {
       >
         <div>
           <Link to="/" target="_blank" className="navigation-link">
-            <FaRegCompass size={25} style={{ fill: "black" }} />
+            <AiOutlineHome size={25} style={{ fill: "black" }} />
           </Link>
         </div>
         <div>

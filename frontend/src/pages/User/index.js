@@ -10,12 +10,12 @@ const User = () => {
   };
   return (
     <div className="container-fluid">
-      HomePage
+      User
       <Navbar
         loginStatus={loginStatus}
         loginCbHandler={loginCbHandler}
       ></Navbar>
-      <h1>Home</h1>
+      <h1>User</h1>
     </div>
   );
 };
