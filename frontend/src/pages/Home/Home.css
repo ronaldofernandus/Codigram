@@ -3,16 +3,37 @@
   margin-left: 25%;
   height: 60%;
   width: 40%;
-  margin-top:5%;
+  margin-top: 10%;
 }
 
 .border1 {
-  border: 4px  rgb(120, 117, 117);
+  border: 4px rgb(120, 117, 117);
   margin-left: 115%;
   height: 60%;
   width: 40%;
-  padding-top:70%
+  padding-top: 70%;
 }
-img {
-  border-radius: 20%;
+.profile-pic {
+  width: 40px;
+  height: auto;
+}
+
+.fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  object-fit: contain;
+
+}
+.fill img {
+  flex-shrink: 0;
+  min-width: 50%;
+  min-height: 100%; 
+  
+  object-fit: contain;
+}
+
+.p {
+  margin-left: 80px;
 }

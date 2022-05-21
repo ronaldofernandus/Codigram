@@ -3,22 +3,42 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi";
 import { Navbar } from "../../components";
-import { bg } from "../../assets/";
+import { bg, b } from "../../assets/";
+import { getAllPosting } from "../../Action/postingAxios";
 
 import "./Home.css";
 
 const HomePage = (props) => {
   const { loginStatus, loginCbHandler } = props;
 
+  const [posting, setPosting] = useState([]);
+  useEffect(() => {
+    getAllPosting((result) => setPosting(result));
+  }, []);
+
   return (
-    <div className="h-100 w-100">
+    <div class="container">
       <div className="border border-secondary">
-        {/* <div
-          className="img d-flex align-items-center justify-content-center"
-          style={{ backgroundImage: `url(https://via.placeholder.com/150)` }}
-        ></div> */}
+        <div className="header">
+          <p>
+            <img
+              src={bg}
+              className="profile-pic rounded-circle"
+              data-toggle="collapse"
+              alt="..."
+            />
+            User
+          </p>
+        </div>
+
         <hr />
-        <div className="border1 border border-secondary"></div>
+        <div class="fill">
+          <img src="https://via.placeholder.com/150" alt="" />
+        </div>
+        <hr />
+        <div>
+          <p>Caption</p>
+        </div>
       </div>
     </div>
   );

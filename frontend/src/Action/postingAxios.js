@@ -14,4 +14,17 @@ const getAllPosting = async (cb) => {
   }
 };
 
-export { getAllPosting };
+const addPosting = async (jadwal) => {
+  try {
+    let addPosting = await axios({
+      method: "POST",
+      url: URL + "/add",
+      data: jadwal,
+    });
+    console.log(addPosting.data);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export { getAllPosting, addPosting };
