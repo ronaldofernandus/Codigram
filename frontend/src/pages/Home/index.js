@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { BiLogOut } from "react-icons/bi";
 import { Navbar } from "../../components";
 import { bg, b } from "../../assets/";
-import { getAllPosting } from "../../Action/postingAxios";
 
 import "./Home.css";
 
@@ -12,9 +11,6 @@ const HomePage = (props) => {
   const { loginStatus, loginCbHandler } = props;
 
   const [posting, setPosting] = useState([]);
-  useEffect(() => {
-    getAllPosting((result) => setPosting(result));
-  }, []);
 
   return (
     <div class="container">

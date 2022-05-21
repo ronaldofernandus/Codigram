@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./navbar.css";
 import { BsPeople } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
-import { FaRegCompass } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { AiOutlineHome } from "react-icons/ai";
+import { AiOutlineHome, AiOutlinePlusSquare } from "react-icons/ai";
 
-const Navbar = (props) => {
+const NavbarMenu = (props) => {
   const { loginStatus, loginCbHandler } = props;
 
   const loginHandler = () => {
@@ -44,7 +43,7 @@ const Navbar = (props) => {
         </div>
         <div>
           <Link to="" target="_blank" className="navigation-link">
-            <FiHeart size={25} style={{ fill: "black" }} />
+            <AiOutlinePlusSquare size={25} style={{ fill: "black" }} />
           </Link>
         </div>
 
@@ -70,4 +69,4 @@ const Navbar = (props) => {
   );
 };
 
-export default Navbar;
+export default NavbarMenu;
