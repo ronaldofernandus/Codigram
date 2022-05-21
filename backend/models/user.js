@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init(
     {
+      profile: DataTypes.STRING,
+      nama: DataTypes.STRING,
       email: {
         type: DataTypes.STRING,
         validate: {
@@ -22,9 +24,9 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+
       username: DataTypes.STRING,
       password: DataTypes.STRING,
-      nama: DataTypes.STRING,
     },
     {
       hooks: {

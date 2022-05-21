@@ -13,8 +13,11 @@ class userController {
   }
   static async register(req, res) {
     try {
-      const { email, username, password, nama } = req.body;
+      const { nama, email, username, password } = req.body;
+      const profile = req.file.path;
       let register = await User.create({
+        profile,
+        nama,
         email,
         username,
         password: encrypt(password),
@@ -40,7 +43,6 @@ class userController {
           res.status(200).json({
             get_token,
           });
-         
         } else {
           res.status(403).json({
             message: "Invalid password",
@@ -59,10 +61,13 @@ class userController {
   static async updateUser(req, res) {
     try {
       const id = req.params.id;
-      const { email, username, password, nama } = req.body;
+      const { nama, email, username, password } = req.body;
+      const profile = req.file.path;
 
       let updateUser = await User.update(
         {
+          profile,
+          nama,
           email,
           username,
           password: encrypt(password),
