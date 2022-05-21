@@ -21,7 +21,6 @@ class userController {
         email,
         username,
         password: encrypt(password),
-        nama,
       });
       res.status(201).json(register);
     } catch (error) {
@@ -37,12 +36,13 @@ class userController {
           username,
         },
       });
+      // console.log(login);
       if (login) {
         if (decrypt(password, login.password)) {
           let get_token = getJwt(login);
           res.status(200).json({
             get_token,
-          });
+          }); 
         } else {
           res.status(403).json({
             message: "Invalid password",
