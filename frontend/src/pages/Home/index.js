@@ -13,7 +13,6 @@ const HomePage = (props) => {
   return (
     <div className="h-100 w-100">
       <div className="border border-secondary">
-        
         {/* <div
           className="img d-flex align-items-center justify-content-center"
           style={{ backgroundImage: `url(https://via.placeholder.com/150)` }}
