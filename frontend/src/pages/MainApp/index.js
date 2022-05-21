@@ -12,7 +12,10 @@ const MainApp = (props) => {
   return (
     <div className="main-app-wrapper">
       <div className="header-wrapper">
-        <Navbar />
+        <Navbar
+          loginStatus={loginStatus}
+          loginCbHandler={loginCbHandler}
+        ></Navbar>
       </div>
 
       <div className="content-wrapper">
