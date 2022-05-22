@@ -42,7 +42,7 @@ const NavbarMenu = (props) => {
           </Link>
         </div>
         <div>
-          <Link to="" target="_blank" className="navigation-link">
+          <Link to="/add" target="_blank" className="navigation-link">
             <AiOutlinePlusSquare size={25} style={{ fill: "black" }} />
           </Link>
         </div>
