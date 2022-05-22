@@ -14,50 +14,64 @@ const User = (props) => {
 
   return (
     <div class="container">
-      <div className="header">
-        <div className="header-left">
-          <div className="profile">
-            <p>
+      <div className="row p-0">
+        <div className="col-4 p-0">
+          <div className="row p-0 m-0">
+            <div className="mx-auto d-flex py-2">
               <img
-                src={bg}
-                className="profile-pic rounded-circle"
-                data-toggle="collapse"
-                alt="..."
+                src="https://via.placeholder.com/150"
+                className="rounded-circle mx-auto d-flex"
+                alt="Rounded Image"
+                style={{ width: "200px" }}
               />
-              User
-            </p>
+            </div>
           </div>
         </div>
-        <div className="header-right">
-          <div className="nama">
-            <h2>Ronaldo</h2>
+
+        <div className="col-8 p-0" style={{}}>
+          <div className="container-fluid ps-3">
+            <div className="">
+              <div className="row p-0 m-0">
+                <div className="mx-auto d-flex py-2 mb-2">
+                  <p className="fs-5 text-dark me-auto my-auto">User</p>
+                </div>
+              </div>
+              <div className="row p-0 m-0 mb-3">
+                <div className="col-4">
+                  <div className="py-2">
+                    <p className="fs-6 text-start text-dark me-auto my-auto">
+                      1 Posts
+                    </p>
+                  </div>
+                </div>
+                {/* fitur belum dikembangkan */}
+                <div className="col-4">
+                  <div className="py-2">
+                    <p className="fs-6 text-start text-dark me-auto my-auto">
+                      1 Followers
+                    </p>
+                  </div>
+                </div>
+                <div className="col-4">
+                  <div className="py-2">
+                    <p className="fs-6 text-start text-dark me-auto my-auto">
+                      11 Following
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="row p-0 m-0">
+                <div className="mx-auto d-flex py-1">
+                  <p className="fs-5 fw-bold text-dark me-auto my-auto">User</p>
+                </div>
+              </div>
+              <div className="row p-0 m-0">
+                <div className="mx-auto d-flex py-0 mb-2">
+                  <p className="py-0 fs-6 text-justify text-break text-dark"></p>
+                </div>
+              </div>
+            </div>
           </div>
-          <ul class="menu">
-            <li>
-              <a href="#">
-                <div className="post">
-                  <span className="jumlah">11</span>
-                  post
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div className="followers">
-                  <span className="jumlah1">11</span>
-                  folowers
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div className="following">
-                  <span className="jumlah2">11</span>
-                  folowing
-                </div>
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
       <hr />
