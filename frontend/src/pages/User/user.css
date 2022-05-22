@@ -23,16 +23,33 @@
   align-items: center;
   overflow: hidden;
   object-fit: contain;
-
 }
 .fill img {
   flex-shrink: 0;
   min-width: 50%;
-  min-height: 100%; 
-  
+  min-height: 100%;
+
   object-fit: contain;
 }
 
 .p {
   margin-left: 80px;
+}
+
+menu {
+  border: 1px solid #ccc;
+  border-width: 1px 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  justify-content: center;
+}
+.menu li {
+  display: inline;
+}
+.menu a {
+  display: inline-block;
+  padding: 10px;
+  color: black;
 }

@@ -7,6 +7,7 @@ import { bg, b } from "../../assets/";
 
 import { getUser } from "../../Axios/userAxios";
 import { getPosting } from "../../Axios/postingAxios";
+import { useParams } from "react-router-dom";
 
 import "./Home.css";
 
@@ -17,16 +18,21 @@ const HomePage = (props) => {
 
   const [user, setUser] = useState([]);
 
-  useEffect(() => {
-    getUser((result) => {
-      setUser(result);
-    });
-  }, []);
+  const params = useParams();
 
   useEffect(() => {
-    getPosting((result) => {
-      setPosting(result);
-    });
+    const { id } = params;
+    getPosting(
+      (id,
+      (result) => {
+        setPosting({
+          image: result[0].image,
+          title: result[0].title,
+          caption: result[0].caption,
+          userId: result[0].useriId,
+        });
+      })
+    );
   }, []);
 
   return (
