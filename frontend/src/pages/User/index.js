@@ -45,7 +45,7 @@ const User = (props) => {
                     </p>
                   </div>
                 </div>
-                {/* fitur belum dikembangkan */}
+              
                 <div className="col-4">
                   <div className="py-2">
                     <p className="fs-6 text-start text-dark me-auto my-auto">
