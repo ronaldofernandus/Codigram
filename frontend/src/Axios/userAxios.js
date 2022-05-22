@@ -15,4 +15,18 @@ const getUser = async (cb) => {
   }
 };
 
-export { getUser };
+const registrasiUser = async (input) => {
+  try {
+    let registrasiUser = await axios({
+      method: "POST",
+      url: URL + "/register",
+      data: input,
+    });
+
+    console.log(registrasiUser.data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { getUser, registrasiUser };

@@ -1,39 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { RegisterBg } from "../../assets";
-import { Button, Gap, Input } from "../../components/molecules/addOns";
+import { Button, Gap, Input } from "../../components/addOns";
 import "./register.css";
 import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
-
-import axios from "axios";
+import { registrasiUser } from "../../Axios/userAxios";
 
 const Register = () => {
   const [input, setInput] = useState({
+    profile: "",
+    nama: "",
     email: "",
     username: "",
     password: "",
-    nama: "",
   });
   const navigate = useNavigate();
 
-  const registrasiUser = async () => {
-    try {
-      let registrasiUser = await axios({
-        method: "POST",
-        url: "http://localhost:3000/user/register",
-        data: input,
-      });
-
-      Swal.fire("Registrasi", "Registrasi Berhasil");
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const registrasiHandler = () => {
     registrasiUser(input);
+    // navigate("/login");
   };
   return (
     <div className="main-page">
@@ -42,11 +28,30 @@ const Register = () => {
       </div>
       <div className="right">
         <p className="title"> Register</p>
+
+        <Input
+          type="file"
+          onChange={(e) => setInput({ ...input, profile: e.target.value })}
+          label="Profile"
+          placeholder="Profile"
+          name="profile"
+          className="form-control"
+        />
         <Input
           type="text"
+          onChange={(e) => setInput({ ...input, nama: e.target.value })}
+          label="Nama"
+          placeholder="Nama"
+          name="nama"
+          className="form-control"
+        />
+        <Input
+          type="email"
           onChange={(e) => setInput({ ...input, email: e.target.value })}
           label="Email"
           placeholder="Email"
+          name="email"
+          className="form-control"
         />
         <Gap height={18} />
         <Input
@@ -54,6 +59,8 @@ const Register = () => {
           type="text"
           label="Username"
           placeholder="Username"
+          name="username"
+          className="form-control"
         />
         <Gap height={18} />
         <Input
@@ -61,19 +68,16 @@ const Register = () => {
           onChange={(e) => setInput({ ...input, password: e.target.value })}
           label="Password"
           placeholder="Password"
+          name="password"
+          className="form-control"
         />
         <Gap height={50} />
-        <Input
-          type="text"
-          onChange={(e) => setInput({ ...input, nama: e.target.value })}
-          label="Nama"
-          placeholder="Nama"
-        />
+
         <Gap height={50} />
         <Button title="Register" onClick={() => registrasiHandler()} />
         <Gap height={100} />
         <div className="w-100 text-center mt-4 text">
-          <p className="mb-0">Don't have an account?</p>
+          <p className="mb-0">Do have an account?</p>
           <Link
             style={{
               color: "red",
@@ -81,9 +85,9 @@ const Register = () => {
               display: "flex",
               justifyContent: "center",
             }}
-            to="/"
+            to="/login"
           >
-            Sign Up
+            Login
           </Link>
         </div>
       </div>
