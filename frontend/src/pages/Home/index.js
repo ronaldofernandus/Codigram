@@ -53,7 +53,7 @@ const HomePage = (props) => {
         </div>
 
         <hr />
-        <div class="fill">
+        <div className="fill">
           <img src="https://via.placeholder.com/150" alt="" />
         </div>
         <hr />

@@ -7,7 +7,6 @@ import { MainContent, Banner } from "./components";
 import LoginPage from "./pages/Login/Login";
 import Register from "./pages/Register";
 
-
 function App() {
   const [loginStatus, setLoginStatus] = useState(false);
   const loginCbHandler = (results) => {
@@ -24,8 +23,6 @@ function App() {
           loginCbHandler={loginCbHandler}
         ></MainContent>
       )}
-
-      <Register></Register>
     </div>
   );
 }

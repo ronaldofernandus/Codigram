@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { google, b } from "../../assets";
-import "./style.css";
+
+import { bg, google } from "./images";
+import "./css/main.css";
+import "./css/util.css";
 import { Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -33,83 +35,67 @@ const Login = () => {
   };
 
   return (
-    <section className="ftco-section">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-6 col-lg-4">
-            <div className="login-wrap py-5">
-              <div>
-                <h3 className="text-center mb-0">Sign in with</h3>
+    <div class="limiter">
+      <div
+        class="container-login100"
+        src={bg}
+        // style="background-image: url('images/bg-01.jpg');"
+      >
+        <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+          <form class="login100-form validate-form flex-sb flex-w">
+            <span class="login100-form-title p-b-53">Sign In With</span>
 
-                <Link
-                  style={{
-                    color: "red",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                  to="#"
-                  className="btn-google m-b-20"
-                >
-                  <img src={google} alt="GOOGLE" />
-                </Link>
-              </div>
-              <div style={{ paddingTop: "2em", textAlign: "center" }}>
-                <p>Or</p>
-              </div>
-              <form action="#" className="login-form">
-                <div className="form-group">
-                  <div className="icon d-flex align-items-center justify-content-center">
-                    <span className="fa fa-user"></span>
-                  </div>
-                  <input
-                    onChange={(e) =>
-                      setForm({ ...form, username: e.target.value })
-                    }
-                    type="text"
-                    className="form-control"
-                    placeholder="Username"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <div className="icon d-flex align-items-center justify-content-center">
-                    <span className="fa fa-lock"></span>
-                  </div>
-                  <input
-                    onChange={(e) =>
-                      setForm({ ...form, password: e.target.value })
-                    }
-                    type="password"
-                    className="form-control"
-                    placeholder="Password"
-                    required
-                  />
-                </div>
-                <div className="form-group d-md-flex">
-                  <div className="w-100 text-md-right">
-                    <Link to="#">Forgot Password</Link>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <button
-                    onClick={() => submitHandler()}
-                    type="submit"
-                    className="btn form-control btn-primary rounded submit px-3"
-                  >
-                    Login
-                  </button>
-                </div>
-              </form>
-              <div className="w-100 text-center mt-4 text">
-                <p className="mb-0">Don't have an account?</p>
-                <Link to="/register">Sign Up</Link>
-              </div>
+            <a href="#" class="btn-face m-b-20">
+              <i class="fa fa-facebook-official"></i>
+              Facebook
+            </a>
+
+            <a href="#" class="btn-google m-b-20">
+              <img src={google} alt="GOOGLE" />
+              Google
+            </a>
+
+            <div class="p-t-31 p-b-9">
+              <span class="txt1">Username</span>
             </div>
-          </div>
+            <div
+              class="wrap-input100 validate-input"
+              data-validate="Username is required"
+            >
+              <input class="input100" type="text" name="username" />
+              <span class="focus-input100"></span>
+            </div>
+
+            <div class="p-t-13 p-b-9">
+              <span class="txt1">Password</span>
+
+              <a href="#" class="txt2 bo1 m-l-5">
+                Forgot?
+              </a>
+            </div>
+            <div
+              class="wrap-input100 validate-input"
+              data-validate="Password is required"
+            >
+              <input class="input100" type="password" name="pass" />
+              <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-login100-form-btn m-t-17">
+              <button class="login100-form-btn">Sign In</button>
+            </div>
+
+            <div class="w-full text-center p-t-55">
+              <span class="txt2">Not a member?</span>
+
+              <a href="#" class="txt2 bo1">
+                Sign up now
+              </a>
+            </div>
+          </form>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
