@@ -20,9 +20,9 @@ const NavbarMenu = (props) => {
   return (
     <div className="navigation">
       <div className="logo">
-        <a className="no-underline" href="#">
+        <Link className="no-underline" to="/">
           Codigram
-        </a>
+        </Link>
       </div>
       <div className="navigation-search-container">
         <input className="search-field" type="text" placeholder="Search" />

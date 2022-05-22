@@ -13,15 +13,23 @@ function App() {
     setLoginStatus(results);
   };
 
+  useEffect(() => {
+    if (localStorage.getItem("get_token")) {
+      setLoginStatus(true);
+    } else {
+      setLoginStatus(false);
+    }
+  }, [loginStatus]);
+
   return (
     <div className="main-page container-fluid">
-      {!loginStatus ? (
-        <LoginPage></LoginPage>
-      ) : (
+      {loginStatus ? (
         <MainContent
           loginStatus={loginStatus}
           loginCbHandler={loginCbHandler}
         ></MainContent>
+      ) : (
+        <LoginPage loginCbHandler={loginCbHandler}></LoginPage>
       )}
     </div>
   );
