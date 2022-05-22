@@ -20,7 +20,7 @@ class userController {
         nama,
         email,
         username,
-        password: encrypt(password),
+        password,
       });
       res.status(201).json(register);
     } catch (error) {
@@ -42,7 +42,7 @@ class userController {
           let get_token = getJwt(login);
           res.status(200).json({
             get_token,
-          }); 
+          });
         } else {
           res.status(403).json({
             message: "Invalid password",
