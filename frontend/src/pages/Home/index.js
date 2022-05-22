@@ -6,7 +6,7 @@ import { Navbar } from "../../components";
 import { bg, b } from "../../assets/";
 
 import { getUser } from "../../Axios/userAxios";
-import {getPosting} from "../../Axios/postingAxios";
+import { getPosting } from "../../Axios/postingAxios";
 
 import "./Home.css";
 
