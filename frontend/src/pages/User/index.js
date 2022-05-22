@@ -1,17 +1,37 @@
 import React, { useState, useEffect } from "react";
-import "./user.css";
+
+import { Link } from "react-router-dom";
+import { BiLogOut } from "react-icons/bi";
 import { Navbar } from "../../components";
+import { bg, b } from "../../assets/";
 
-const User = () => {
-  const [loginStatus, setLoginStatus] = useState(false);
+import "./user.css";
 
-  const loginCbHandler = (result) => {
-    setLoginStatus(result);
-  };
+const User = (props) => {
+  const { loginStatus, loginCbHandler } = props;
+
+  const [posting, setPosting] = useState([]);
+
   return (
-    <div className="container-fluid">
-      User
-      <h1>User</h1>
+    <div class="container">
+      <div className="profile">
+        <p>
+          <img
+            src={bg}
+            className="profile-pic rounded-circle"
+            data-toggle="collapse"
+            alt="..."
+          />
+          User
+        </p>
+      </div>
+
+      <hr width="70%" align="center" />
+      <div class="fill"></div>
+      <hr />
+      <div>
+        <p>Caption</p>
+      </div>
     </div>
   );
 };

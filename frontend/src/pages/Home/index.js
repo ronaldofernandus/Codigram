@@ -5,12 +5,29 @@ import { BiLogOut } from "react-icons/bi";
 import { Navbar } from "../../components";
 import { bg, b } from "../../assets/";
 
+import { getUser } from "../../Axios/userAxios";
+import getPosting from "../../Axios/postingAxios";
+
 import "./Home.css";
 
 const HomePage = (props) => {
   const { loginStatus, loginCbHandler } = props;
 
   const [posting, setPosting] = useState([]);
+
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    getUser((result) => {
+      setUser(result);
+    });
+  }, []);
+
+  useEffect(() => {
+    getPosting((result) => {
+      setPosting(result);
+    });
+  }, []);
 
   return (
     <div class="container">
