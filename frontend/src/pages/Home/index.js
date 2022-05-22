@@ -36,34 +36,8 @@ const HomePage = (props) => {
   }, []);
 
   return (
-    <div className="container p-0 ">
-      <div className="row p-0 m-0 ">
-        <div className="col-12 ">
-          <div className="border border-secondary">
-            <div className="header">
-              <p>
-                <img
-                  src={bg}
-                  className="profile-pic rounded-circle"
-                  data-toggle="collapse"
-                  alt="..."
-                />
-                User
-              </p>
-            </div>
-
-            <hr />
-            <div className="fill">
-              <img src="https://via.placeholder.com/150" alt="" />
-            </div>
-            <hr />
-            <div>
-              <p>Caption</p>
-            </div>
-          </div>
-        </div>
-        <div className="col-8 bg-red border border-dark">
-        <div className="border border-secondary">
+    <div class="container">
+      <div className="border border-secondary">
         <div className="header">
           <p>
             <img
@@ -77,14 +51,12 @@ const HomePage = (props) => {
         </div>
 
         <hr />
-        <div className="fill">
+        <div class="fill">
           <img src="https://via.placeholder.com/150" alt="" />
         </div>
         <hr />
         <div>
           <p>Caption</p>
-        </div>
-      </div>
         </div>
       </div>
     </div>
