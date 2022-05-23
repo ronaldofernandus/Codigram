@@ -7,14 +7,26 @@ import { bg, b } from "../../assets/";
 
 import "./user.css";
 
+import { getListPosting } from "../../Axios/postingAxios";
+import { useDispatch } from "react-redux";
+
+import { useSelector } from "react-redux";
+
 const User = (props) => {
-  const { loginStatus, loginCbHandler } = props;
+  const { getListPostingResult, getListPostingLoading, getListPostingError } =
+    useSelector((state) => state.postingReducers);
 
-  const [posting, setPosting] = useState([]);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getListPosting());
+  }, [dispatch]);
   return (
     <div class="container">
-      <div><h1>Test</h1></div>
+      <div>
+        <h1>Test</h1>
+      </div>
+
       <div className="row p-0">
         <div className="col-4 p-0">
           <div className="row p-0 m-0">
@@ -45,7 +57,7 @@ const User = (props) => {
                     </p>
                   </div>
                 </div>
-              
+
                 <div className="col-4">
                   <div className="py-2">
                     <p className="fs-6 text-start text-dark me-auto my-auto">
@@ -79,19 +91,13 @@ const User = (props) => {
 
       <ul class="menu">
         <li>
-          <a href="#">Home</a>
+          <a href="#">Post</a>
         </li>
         <li>
-          <a href="#">About</a>
+          <a href="#">Saved</a>
         </li>
         <li>
-          <a href="#">Work</a>
-        </li>
-        <li>
-          <a href="#">Clients</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
+          <a href="#">Tagged</a>
         </li>
       </ul>
 

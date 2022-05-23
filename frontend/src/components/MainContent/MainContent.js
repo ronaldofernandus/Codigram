@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 
 import { Route, Routes } from "react-router-dom";
-import NavbarMenu from "./Navbar/NavbarMenu";
-import User from "../pages/User";
-import Detail from "../pages/Detail/index";
-import Home from "../pages/Home";
-import AddPage from "../pages/AddPage";
+import NavbarMenu from "../Navbar/NavbarMenu";
+import User from "../../pages/User";
+import Detail from "../../pages/Detail/index";
+import Home from "../../pages/Home";
+import AddPage from "../../pages/AddPage";
 
 const MainContent = (props) => {
   const { loginStatus, loginCbHandler } = props;
   return (
-    <div className="main-app-wrapper">
+    <div className="container">
       <div className="header-wrapper">
         <NavbarMenu
           loginStatus={loginStatus}
@@ -18,7 +18,7 @@ const MainContent = (props) => {
         ></NavbarMenu>
       </div>
 
-      <div className="content-wrapper">
+      <div className="container-fluid">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/user" element={<User />}></Route>

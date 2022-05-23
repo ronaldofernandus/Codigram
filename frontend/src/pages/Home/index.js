@@ -5,60 +5,64 @@ import { BiLogOut } from "react-icons/bi";
 import { Navbar } from "../../components";
 import { bg, b } from "../../assets/";
 
-import { getUser } from "../../Axios/userAxios";
-import { getPosting } from "../../Axios/postingAxios";
-import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getListPosting } from "../../Axios/postingAxios";
+import { useSelector } from "react-redux";
 
 import "./Home.css";
 
 const HomePage = (props) => {
-  const { loginStatus, loginCbHandler } = props;
+  const { getListPostingResult, getListPostingLoading, getListPostingError } =
+    useSelector((state) => state.postingReducers);
 
-  const [posting, setPosting] = useState([]);
-
-  const [user, setUser] = useState([]);
-
-  const params = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const { id } = params;
-    getPosting(
-      (id,
-      (result) => {
-        setPosting({
-          image: result[0].image,
-          title: result[0].title,
-          caption: result[0].caption,
-          userId: result[0].useriId,
-        });
-      })
-    );
-  }, []);
+    console.log("1 Masuk");
+    dispatch(getListPosting());
+  }, [dispatch]);
 
   return (
-    <div class="container">
-      <div className="border border-secondary">
-        <div className="header">
-          <p>
-            <img
-              src={bg}
-              className="profile-pic rounded-circle"
-              data-toggle="collapse"
-              alt="..."
-            />
-            User
-          </p>
-        </div>
+    <div>
+      <h1>Test</h1>
+      {getListPostingResult ? (
+        getListPostingResult.map((result) => {
+          return (
+            <div className="border border-secondary">
+              <div className="header" key={result.UserId}>
+                <p>
+                  <img
+                    src={result.User.profile}
+                    className="profile-pic rounded-circle"
+                    data-toggle="collapse"
+                    alt="..."
+                  />
+                </p>
+              </div>
 
-        <hr />
-        <div class="fill">
-          <img src="https://via.placeholder.com/150" alt="" />
-        </div>
-        <hr />
-        <div>
-          <p>Caption</p>
-        </div>
-      </div>
+              <hr />
+              <div className="fill">
+                {/* <img src={require(`${result.image}`)} alt="" /> */}
+                <img src={"https://via.placeholder.com/150"} alt="" />
+              </div>
+              <hr />
+
+              <div className="row" key={result.id}>
+                <div className="row">
+                  <p>{result.title}</p>
+                </div>
+                <div className="row">
+                  <p>{result.caption}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      ) : getListPostingLoading ? (
+        <p>Loading</p>
+      ) : (
+        <p>{getListPostingError ? getListPostingError : "data kosong"}</p>
+      )}
     </div>
   );
 };
