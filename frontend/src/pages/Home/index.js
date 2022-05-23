@@ -32,7 +32,7 @@ const HomePage = (props) => {
               <div className="header">
                 <p>
                   <img
-                    src={`http://localhost:3000/${result.profile}`}
+                    src={`http://localhost:3000/1653333216458-5.jpg`}
                     className="profile-pic rounded-circle"
                     data-toggle="collapse"
                     alt="..."
@@ -43,7 +43,10 @@ const HomePage = (props) => {
 
               <hr />
               <div className="fill">
-                <img src={`http://localhost:3000/iamges/${result.image}`} alt="" />
+                <img
+                  src={`http://localhost:3000/iamges/1653333216458-5.jpg`}
+                  alt=""
+                />
               </div>
               <hr />
 
