@@ -29,30 +29,28 @@ const HomePage = (props) => {
         getListPostingResult.map((result) => {
           return (
             <div className="border border-secondary">
-              <div className="header" key={result.UserId}>
+              <div className="header">
                 <p>
                   <img
-                    src={result.profile}
+                    src={`http://localhost:3000/${result.profile}`}
                     className="profile-pic rounded-circle"
                     data-toggle="collapse"
                     alt="..."
                   />
-                  User
+                  {result.User.nama}
                 </p>
               </div>
 
               <hr />
-              <div className="fill" key={result.id}>
-                <img
-                  src={"https://via.placeholder.com/150"}
-                  // src={`http://localhost:3000/image/${result.image}`}
-                  // style={{ backgroundImage: `url('${result.image}')` }}
-                  alt=""
-                />
+              <div className="fill">
+                <img src={`http://localhost:3000/iamges/${result.image}`} alt="" />
               </div>
               <hr />
 
               <div className="row">
+                <div className="row">
+                  <p className="fw-bold"> {result.User.nama}</p>
+                </div>
                 <div className="row">
                   <p>{result.title}</p>
                 </div>

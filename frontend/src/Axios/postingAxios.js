@@ -48,6 +48,7 @@ export const getListPosting = () => {
 };
 
 export const addPosting = (data) => {
+  const accessToken = localStorage.getItem("get_token");
   console.log("2.Masuk");
   console.log(data);
   return (dispatch) => {
@@ -64,6 +65,7 @@ export const addPosting = (data) => {
       url: "http://localhost:3000/posting/add",
       timeout: 120000,
       data: data,
+      headers: { get_token: accessToken },
     })
       .then((response) => {
         console.log("3.Berhasi", response);

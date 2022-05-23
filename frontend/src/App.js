@@ -23,13 +23,13 @@ function App() {
 
   return (
     <div className="main-page container-fluid">
-      {loginStatus ? (
+      {!loginStatus ? (
+        <LoginPage loginCbHandler={loginCbHandler}></LoginPage>
+      ) : (
         <MainContent
           loginStatus={loginStatus}
           loginCbHandler={loginCbHandler}
         ></MainContent>
-      ) : (
-        <LoginPage loginCbHandler={loginCbHandler}></LoginPage>
       )}
     </div>
   );
