@@ -100,8 +100,21 @@ const User = (props) => {
           <a href="#">Tagged</a>
         </li>
       </ul>
+      <hr />
 
-      <div className="feed"></div>
+      {getListPostingResult ? (
+        getListPostingResult.map((result) => {
+          return (
+       <div>
+         <p>Posting</p>
+       </div>
+          );
+        })
+      ) : getListPostingLoading ? (
+        <p>Loading</p>
+      ) : (
+        <p>{getListPostingError ? getListPostingError : "data kosong"}</p>
+      )}
     </div>
   );
 };

@@ -32,22 +32,27 @@ const HomePage = (props) => {
               <div className="header" key={result.UserId}>
                 <p>
                   <img
-                    src={result.User.profile}
+                    src={result.profile}
                     className="profile-pic rounded-circle"
                     data-toggle="collapse"
                     alt="..."
                   />
+                  User
                 </p>
               </div>
 
               <hr />
-              <div className="fill">
-                {/* <img src={require(`${result.image}`)} alt="" /> */}
-                <img src={"https://via.placeholder.com/150"} alt="" />
+              <div className="fill" key={result.id}>
+                <img
+                  src={"https://via.placeholder.com/150"}
+                  // src={`http://localhost:3000/image/${result.image}`}
+                  // style={{ backgroundImage: `url('${result.image}')` }}
+                  alt=""
+                />
               </div>
               <hr />
 
-              <div className="row" key={result.id}>
+              <div className="row">
                 <div className="row">
                   <p>{result.title}</p>
                 </div>

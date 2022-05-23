@@ -1,9 +1,13 @@
-import { Get_List_Posting } from "../../Axios/postingAxios";
+import { Get_List_Posting, Add_Posting } from "../../Axios/postingAxios";
 
 const initialState = {
   getListPostingResult: false,
   getListPostingLoading: false,
   getListPostingError: false,
+
+  addPostingResult: false,
+  addPostingLoading: false,
+  addPostingError: false,
 };
 
 const posting = (state = initialState, action) => {
@@ -15,6 +19,14 @@ const posting = (state = initialState, action) => {
         getListPostingResult: action.payload.data,
         getListPostingLoading: action.payload.loading,
         getListPostingError: action.payload.errorMessage,
+      };
+    case Add_Posting:
+      console.log("4 Masuk reducers");
+      return {
+        ...state,
+        addPostingResult: action.payload.data,
+        addPostingLoading: action.payload.loading,
+        addPostingError: action.payload.errorMessage,
       };
     default:
       return state;
