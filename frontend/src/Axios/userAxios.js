@@ -29,4 +29,17 @@ const registrasiUser = async (input) => {
   }
 };
 
-export { getUser, registrasiUser };
+const uploadImage = async (data) => {
+  try {
+    let result = await axios({
+      method: "POST",
+      url: URL + "/images",
+      data: data,
+    });
+    console.log(result);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { getUser, registrasiUser, uploadImage };

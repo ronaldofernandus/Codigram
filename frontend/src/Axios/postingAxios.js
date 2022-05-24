@@ -6,7 +6,7 @@ export const Add_Posting = "Add_Posting";
 
 export const getListPosting = () => {
   // console.log("2.Masuk");
-  const accessToken = localStorage.getItem("get_token");
+  const get_token = localStorage.getItem("get_token");
   return (dispatch) => {
     dispatch({
       type: "Get_List_Posting",
@@ -20,7 +20,7 @@ export const getListPosting = () => {
       method: "GET",
       url: "http://localhost:3000/posting",
       timeout: 120000,
-      headers: { get_token: accessToken },
+      headers: { get_token: get_token },
     })
       .then((response) => {
         // console.log("3.Berhasi", response);
@@ -47,8 +47,7 @@ export const getListPosting = () => {
   };
 };
 
-export const addPosting = (data) => {
-  const accessToken = localStorage.getItem("get_token");
+export const addPosting = (data, get_token) => {
   console.log("2.Masuk");
   console.log(data);
   return (dispatch) => {
@@ -65,7 +64,9 @@ export const addPosting = (data) => {
       url: "http://localhost:3000/posting/add",
       timeout: 120000,
       data: data,
-      headers: { get_token: accessToken },
+      headers: {
+        get_token: get_token,
+      },
     })
       .then((response) => {
         console.log("3.Berhasi", response);

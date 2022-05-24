@@ -6,19 +6,39 @@ import { bg } from "./images";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addPosting } from "../../Axios/postingAxios";
+import { Upload } from "../../components";
 
 const AddPage = () => {
   const [title, setTitle] = useState("");
   const [caption, setCaption] = useState("");
+  const [image, setImage] = useState("");
+
+  const [imagePreview, setImagePreview] = useState(null);
 
   const dispatch = useDispatch();
+  const get_token = localStorage.getItem("get_token");
+  const imageUpload = (event) => {
+    const file = event.target.files[0];
+    setImage(file);
+    setImagePreview(URL.createObjectURL(file));
+  };
 
   const submitHandler = (event) => {
-    event.preventDefault();
-    console.log("1.Mulai");
+    console.log("title", title);
+    console.log("caption", caption);
 
-    dispatch(addPosting({ title: title, caption: caption }));
+    console.log("image", image);
+    // event.preventDefault();
+    // console.log("1.Mulai");
   };
+
+  const data = new FormData();
+  data.append("title", title);
+  data.append("caption", caption);
+  data.append("image", image);
+  dispatch(
+    addPosting({ image: image, title: title, caption: caption }, get_token)
+  );
 
   return (
     <div>
@@ -35,6 +55,7 @@ const AddPage = () => {
             <span className="login100-form-title p-b-34 p-t-27">
               Form Input
             </span>
+            <Upload onChange={(e) => imageUpload(e)} img={imagePreview} />
             <div
               className="wrap-input100 validate-input"
               data-validate="Enter title"
@@ -44,14 +65,14 @@ const AddPage = () => {
                 type="title"
                 name="title"
                 value={title}
-                onChange={(event) => setTitle(event.target.value)}
+                onChange={(e) => setTitle(e.target.value)}
                 placeholder="title"
               />
               <span
                 className="focus-input100"
                 data-placeholder="&#xf191;"
               ></span>
-            </div>{" "}
+            </div>
             <div
               className="wrap-input100 validate-input"
               data-validate="Enter caption"
@@ -61,7 +82,7 @@ const AddPage = () => {
                 type="caption"
                 name="caption"
                 value={caption}
-                onChange={(event) => setCaption(event.target.value)}
+                onChange={(e) => setCaption(e.target.value)}
                 placeholder="caption"
               />
               <span
@@ -71,7 +92,7 @@ const AddPage = () => {
             </div>
             <div className="container-login100-form-btn">
               <button
-                onClick={(event) => submitHandler(event)}
+                onClick={submitHandler}
                 type="submit"
                 className="login100-form-btn"
               >

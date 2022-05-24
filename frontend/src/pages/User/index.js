@@ -105,9 +105,15 @@ const User = (props) => {
       {getListPostingResult ? (
         getListPostingResult.map((result) => {
           return (
-       <div>
-         <p>Posting</p>
-       </div>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-3">
+                  <div className="image">
+                    <img src={`http://localhost:3000/images/${result.image}`} />
+                  </div>
+                </div>
+              </div>
+            </div>
           );
         })
       ) : getListPostingLoading ? (
