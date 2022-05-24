@@ -7,8 +7,13 @@ const upload = require("../middleware/multer");
 postingRoute.get("/", postingController.getPosting);
 postingRoute.post(
   "/add",
-  authentication,
+  // authentication,
   upload.single("image"),
+  (req, res) => {
+    let finalImageUrl =
+      req.protocol + "://" + req.get("host") + "/image/" + req.file.filename;
+    res.json({ status: "succes", image: finalImageUrl });
+  },
 
   postingController.createPosting
 );

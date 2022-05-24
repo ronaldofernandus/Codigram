@@ -1,4 +1,8 @@
-import { Get_List_Posting, Add_Posting } from "../../Axios/postingAxios";
+import {
+  Get_List_Posting,
+  Add_Posting,
+  upload_image,
+} from "../../Axios/postingAxios";
 
 const initialState = {
   getListPostingResult: false,
@@ -8,6 +12,10 @@ const initialState = {
   addPostingResult: false,
   addPostingLoading: false,
   addPostingError: false,
+
+  uploadImageResult: false,
+  uploadImageLoading: false,
+  uploadImageError: false,
 };
 
 const posting = (state = initialState, action) => {
@@ -27,6 +35,14 @@ const posting = (state = initialState, action) => {
         addPostingResult: action.payload.data,
         addPostingLoading: action.payload.loading,
         addPostingError: action.payload.errorMessage,
+      };
+    case upload_image:
+      console.log("4 Masuk reducers");
+      return {
+        ...state,
+        uploadImageResult: action.payload.data,
+        uploadImageLoading: action.payload.loading,
+        uploadImageError: action.payload.errorMessage,
       };
     default:
       return state;

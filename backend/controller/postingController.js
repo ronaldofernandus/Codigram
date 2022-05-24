@@ -17,9 +17,14 @@ class postingController {
   static async createPosting(req, res) {
     try {
       const { title, caption } = req.body;
+      // // console.log(req.body);
+
       const image = req.file.path;
 
+      // // console.log(req.file.path);
+
       const UserId = +req.userData.id;
+      // console.log(req.userData.id);
 
       let createPosting = await Posting.create({
         image,
@@ -27,6 +32,7 @@ class postingController {
         caption,
         UserId,
       });
+
       res.status(201).json(createPosting);
     } catch (error) {
       res.status(500).json(error);
